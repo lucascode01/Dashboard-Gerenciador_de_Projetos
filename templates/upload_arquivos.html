@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload de Arquivos para {{ nome_projeto }}</title>
+    <style>
+        body {
+            background-image: url('/static/oi.jpeg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: #ffffff;
+            font-family: 'Arial', sans-serif; /* Escolha uma fonte apropriada */
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        h1 {
+            margin-bottom: 0;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 5px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+        }
+
+        input {
+            margin: 5px 0;
+        }
+
+        button {
+            background-color: #3498db;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Upload de Arquivos para {{ nome_projeto }}</h1>
+    </header>
+    <form action="{{ url_for('upload_arquivos', nome_projeto=nome_projeto) }}" method="post" enctype="multipart/form-data">
+        <label for="arquivos_sst">Documentação SST:</label>
+        <input type="file" name="arquivos_sst" accept=".pdf" multiple><br>
+
+        <label for="arquivos_colaboradores">Colaboradores:</label>
+        <input type="file" name="arquivos_colaboradores" accept=".pdf" multiple><br>
+
+        <button type="submit">Enviar Arquivos</button>
+    </form>
+    
+</body>
+</html>

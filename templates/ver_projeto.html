@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizar Projeto</title>
+    <style>
+        body {
+            background-image: url('/static/oi.jpeg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: #ffffff;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        h1 {
+            margin-bottom: 0;
+        }
+
+        h2 {
+            border-bottom: 2px solid #ffffff;
+            padding-bottom: 5px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        a {
+            color: #ffd700;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .upload-link, .back-link {
+            display: block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .upload-link {
+            background-color: #4caf50;
+            color: #ffffff;
+        }
+
+        .back-link {
+            color: #3498db;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Projeto: {{ nome_projeto }}</h1>
+    </header>
+    <section>
+        <h2>Documentação SST</h2>
+        <ul>
+            {% for arquivo in lista_documentacao_sst %}
+                <li><a href="{{ url_for('servir_arquivo', nome_projeto=nome_projeto, pasta='Documentação SST', nome_arquivo=arquivo) }}">{{ arquivo }}</a></li>
+            {% endfor %}
+        </ul>
+
+        <h2>Colaboradores</h2>
+        <ul>
+            {% for arquivo in lista_colaboradores %}
+                <li><a href="{{ url_for('servir_arquivo', nome_projeto=nome_projeto, pasta='Colaboradores', nome_arquivo=arquivo) }}">{{ arquivo }}</a></li>
+            {% endfor %}
+        </ul>
+    </section>
+    <a class="upload-link" href="{{ url_for('upload_arquivos', nome_projeto=nome_projeto) }}">Ir para a página de Upload de Arquivos</a>
+    <a class="back-link" href="{{ url_for('index') }}">Voltar para a página inicial</a>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Captura de Arquivos</title>
+    
+    <!-- Adicione links para folhas de estilo ou scripts adicionais aqui -->
+    <style>
+        body {
+            background: url('/static/oi.jpeg') center center fixed; /* Adiciona a imagem de plano de fundo */
+            background-size: cover; /* Faz com que a imagem de fundo cubra toda a tela */
+            color: #ffffff; /* Define a cor do texto como branco para contrastar com o fundo */
+            font-family: Arial, sans-serif; /* Define a fonte do texto */
+            height: 100vh; /* Define a altura do corpo como 100% da altura da tela */
+            margin: 0; /* Remove margens padrão do corpo */
+            padding: 20px; /* Adiciona algum preenchimento para afastar o conteúdo das bordas */
+        }
+
+        h1 {
+            color: #eef3f7; /* Cor azul oceano para os cabeçalhos */
+        }
+
+        div {
+            margin-bottom: 20px; /* Adiciona algum espaço entre as seções */
+        }
+
+        button {
+            background-color: #e8ecef; /* Cor de fundo do botão */
+            color: #7de031; /* Cor do texto do botão */
+            padding: 10px 15px; /* Adiciona algum preenchimento ao botão */
+            border: none; /* Remove a borda do botão */
+            cursor: pointer; /* Adiciona um cursor quando o mouse passa sobre o botão */
+        }
+
+        input[type="text"] {
+            color: #80bf2e; /* Cor do texto do input de texto */
+            padding: 10px; /* Adiciona algum preenchimento ao input de texto */
+            background-color: #e8ecef; /* Cor de fundo do input de texto */
+            border: none; /* Remove a borda do input de texto */
+            margin-bottom: 10px; /* Adiciona algum espaço abaixo do input de texto */
+        }
+        
+        a {
+            color: #ffffff; /* Cor do texto do link */
+            text-decoration: none; /* Remove a decoração do link */
+            margin-top: 10px; /* Adiciona algum espaço acima do link */
+            display: inline-block; /* Faz com que o link tenha a largura do conteúdo */
+        }
+    </style>
+</head>
+<body>
+    <h1>Captura de Arquivos</h1>
+
+    <form action="/criar_projeto" method="post">
+        <label for="nome_projeto">Qual o nome do projeto?</label>
+        <input type="text" name="nome_projeto" id="nome_projeto" required>
+        <br>
+        <button type="submit">Criar Projeto</button>
+    </form>
+
+    <!-- Link para voltar à página de administrador -->
+    <a href="{{ url_for('index') }}">Voltar para a página de administrador</a>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Administrador</title>
+    
+    <!-- Adicione links para folhas de estilo ou scripts adicionais aqui -->
+    <style>
+        body {
+            background: url('/static/oi.jpeg') center center fixed; /* Adiciona a imagem de plano de fundo */
+            background-size: cover; /* Faz com que a imagem de fundo cubra toda a tela */
+            color: #FF9C27; /* Define a cor do texto como vinho */
+            font-family: Arial, sans-serif; /* Define a fonte do texto */
+            height: 100vh; /* Define a altura do corpo como 100% da altura da tela */
+            margin: 0; /* Remove margens padrão do corpo */
+            padding: 20px; /* Adiciona algum preenchimento para afastar o conteúdo das bordas */
+        }
+
+        h1 {
+            color: #FF9C27; /* Cor vinho para os cabeçalhos */
+        }
+
+        div {
+            margin-bottom: 20px; /* Adiciona algum espaço entre as seções */
+        }
+
+        button {
+            background-color: #ffffff; /* Cor de fundo do botão (cinza escuro) */
+            color: #FF9C27; /* Cor do texto do botão como vinho */
+            padding: 10px 15px; /* Adiciona algum preenchimento ao botão */
+            border: none; /* Remove a borda do botão */
+            cursor: pointer; /* Adiciona um cursor quando o mouse passa sobre o botão */
+        }
+
+        .projetos {
+            margin-top: 30px; /* Adiciona espaço acima da lista de projetos */
+        }
+
+        .projeto {
+            background-color: #3a3a3a; /* Cor de fundo do bloco de projeto (cinza escuro) */
+            padding: 10px; /* Adiciona algum preenchimento ao bloco de projeto */
+            margin-bottom: 10px; /* Adiciona espaço abaixo do bloco de projeto */
+            color: #fbfbfb; /* Cor do texto do bloco de projeto como vinho */
+        }
+
+        .projeto a {
+            text-decoration: none; /* Remove a decoração de texto padrão (sublinhado) do link */
+            color: #fbfbfb; /* Cor do texto do link como vinho */
+            display: block; /* Faz com que o link ocupe toda a largura do bloco de projeto */
+            padding: 10px; /* Adiciona algum preenchimento ao link */
+        }
+    </style>
+</head>
+<body>
+    <h1>Perfil de Administrador</h1>
+    
+    <div>
+        <h2>Métrica 1</h2>
+        <p>{{ dados['metrica1'] }}</p>
+    </div>
+    
+    <div>
+        <h2>Métrica 2</h2>
+        <p>{{ dados['metrica2'] }}</p>
+    </div>
+    
+    <div>
+        <h2>Métrica 3</h2>
+        <p>{{ dados['metrica3'] }}</p>
+    </div>
+
+    <!-- Adiciona a lista de projetos -->
+    <div class="projetos">
+        <h2>Projetos</h2>
+        {% if dados['projetos'] %}
+            {% for projeto in dados['projetos'] %}
+                <div class="projeto">
+                    <a href="{{ url_for('ver_projeto', nome_projeto=projeto['nome']) }}">{{ projeto['nome'] }}</a>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>Nenhum projeto disponível.</p>
+        {% endif %}
+    </div>
+
+    <!-- Adicione mais elementos HTML conforme necessário -->
+
+    <form action="/criar_projeto" method="post">
+        <button type="submit">Criar Projeto</button>
+    </form>
+
+    <!-- Adicione scripts adicionais aqui, se necessário -->
+</body>
+</html>
